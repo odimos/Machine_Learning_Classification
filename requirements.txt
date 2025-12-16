@@ -1,0 +1,9 @@
+numpy>=1.24,<2
+
+torch>=2.1,<2.4
+torchtext>=0.16,<0.18
+torchdata>=0.6,<0.8
+
+pandas>=1.5
+nltk>=3.8
+portalocker>=2.0
