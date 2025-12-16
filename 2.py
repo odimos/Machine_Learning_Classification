@@ -8,6 +8,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import precision_score, recall_score, f1_score, precision_recall_fscore_support
 import pandas as pd
+from sklearn.naive_bayes import BernoulliNB
 
 from plots import plotResults
 
@@ -67,7 +68,7 @@ def useModel(model, train_vectors, train_labels, dev_vectors, dev_labels):
 
 print(f"Train vectors shape: {train_vectors.shape}")
 
-nb_model = MultinomialNB()
+nb_model = BernoulliNB()
 
 train_size_percentages = np.linspace(0.1, 1.0, 10)
 
@@ -110,7 +111,7 @@ test_texts = [text for _, text in test_data]
 
 # Vectorize the test texts (using the same vectorizer as before)
 vectorizer = CountVectorizer(vocabulary=vocabulary, binary=True)
-test_vectors = vectorizer.fit_transform(test_texts).toarray()
+test_vectors = vectorizer.transform(test_texts).toarray()
 # Predict on the test data
 test_predictions = nb_model.predict(test_vectors)
 
